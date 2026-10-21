@@ -6,8 +6,8 @@ import io.quarkus.runtime.annotations.QuarkusMain;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 
-@RequestScoped 
-//@QuarkusMain
+//@RequestScoped 
+@QuarkusMain
 public class Main implements QuarkusApplication {
 
    @Inject

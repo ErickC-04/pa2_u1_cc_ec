@@ -3,11 +3,35 @@ package ec.edu.uce.pa.paquete;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
-@ApplicationScoped  //Delego el control al contenedor Arc
+@ApplicationScoped
+//@RequestScopped
+//@Singleton  //Delego el control al contenedor Arc
+
 public class PedidoService {
 
-    @Inject 
+     @Inject 
     private MailService mailService;
+
+
+    
+  /*   private MailService mailService;
+
+    //Inyeccion de dependencias por constructor
+    @Inject 
+    public PedidoService(MailService mailService){
+        this.mailService = mailService;
+    }*/
+
+   /*    private MailService mailService;
+       
+       //Inyeccion de dependencia por setter
+       @Inject 
+       public void setMailService(MailService mailService) {
+        System.out.println("Se esta inyectando el servicio de correo electronico service");
+        this.mailService = mailService;
+    }*/
+
+
 
     public void realizar(Pedido pedido) {
         System.out.println("realizando pedido...");
@@ -24,4 +48,9 @@ public class PedidoService {
         this.mailService.enviar(pedido.getCorreo(), asunto, cuerpo);
 
     }
+
+
+
+
+    
 }
