@@ -1,4 +1,4 @@
-# pa2_u1_cc_ap
+# pa2_u1_cc_ec
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
