@@ -11,10 +11,7 @@ import jakarta.inject.Named;
 
 public class PedidoService {
 
-    // @Inject
-    // private MailService diferente;
-    // Por tener 2 impementaciones de la misma interfaz da problema de ambiguedad
-    @Inject
+
     @Named("mail")
     private Notificacion notificacionCorreo;
 
