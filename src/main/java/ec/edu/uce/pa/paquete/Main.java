@@ -1,39 +1,40 @@
+
 package ec.edu.uce.pa.paquete;
- 
+
 import io.quarkus.runtime.Quarkus;
 import io.quarkus.runtime.QuarkusApplication;
 import io.quarkus.runtime.annotations.QuarkusMain;
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
- 
-//@RequestScoped
+
 @QuarkusMain
 public class Main implements QuarkusApplication {
- 
+
     @Inject
-    private PedidoService pedidoService;
- 
-    @Inject
-    private CompraService compraService;
- 
+    private VentaService ventaService;
+
     public static void main(String[] args) {
- 
         Quarkus.run(Main.class, args);
- 
     }
- 
+
     @Override
     public int run(String... args) {
- 
-        System.out.println("Iniciando Aplicacion Quarkus...");
-        Pedido pedido = new Pedido(" Juan Perez ", " Laptop", 1500.00, "juan.perez@example"); // creamos el objeto de la
-        pedido.setTelefono("0999887765");
-        this.pedidoService.realizar(pedido);
- 
-        Compra compra = new Compra("Erick Capa", "LAO", 25, "eacapa@uce.edu.ec");
-        pedido.setTelefono("0983550635");
-        this.compraService.realizar(compra);
- 
+
+        System.out.println("Iniciando simulador de descuentos...");
+
+        // Venta 1: Cliente REGULAR
+        ventaService.realizarVenta("REGULAR", 100.00);
+
+        // Venta 2: Cliente VIP
+        ventaService.realizarVenta("VIP", 200.00);
+
+        // Venta 3: Cliente REGULAR
+        ventaService.realizarVenta("REGULAR", 300.00);
+
+        // Venta 4: Cliente VIP
+        ventaService.realizarVenta("VIP", 500.00);
+
+        System.out.println("Simulador finalizado.");
+
         return 0;
     }
 }
