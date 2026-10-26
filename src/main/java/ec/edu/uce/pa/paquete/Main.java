@@ -33,7 +33,13 @@ public class Main implements QuarkusApplication {
         // Venta 4: Cliente VIP
         ventaService.realizarVenta("VIP", 500.00);
 
+
+          System.out.println("Historial de ventas:");
+        ventaService.mostrarHistorial();
+        
         System.out.println("Simulador finalizado.");
+
+      
 
         return 0;
     }

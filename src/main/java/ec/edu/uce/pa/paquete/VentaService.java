@@ -54,4 +54,7 @@ public class VentaService {
 
         auditoria.registrar("Venta realizada: " + tipo);
     }
+    public void mostrarHistorial() {
+    auditoria.mostrarVentas();
+}
 }
