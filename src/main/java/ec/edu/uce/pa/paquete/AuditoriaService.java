@@ -6,8 +6,13 @@ import jakarta.inject.Singleton;
 
 @Singleton 
 public class AuditoriaService {
-public void guardarEnlaBase(String cliente , double total , String correo) {
-    System.out.println(" Guardando en la base de dato la auditoria : Cliente : " + cliente + ", Total : " + total + ", Correo :" + correo);
-    System.out.println(" Con fecha y hora " + LocalDateTime.now());
-}
+
+    public void guardarEnlaBase(String cliente, String cuenta, double monto) {
+
+        System.out.println("Guardando auditoria bancaria...");
+        System.out.println("Cliente: " + cliente);
+        System.out.println("Cuenta destino: " + cuenta);
+        System.out.println("Monto: $" + monto);
+        System.out.println("Fecha y hora: " + LocalDateTime.now());
+    }
 }
