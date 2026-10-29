@@ -14,6 +14,7 @@ import jakarta.inject.Singleton;
 //Dependet // su ambito es durante toda la aplicacion es decir se crea un objeto una sola instancia de la clase  y se comparte entre todas los componentes que lo utilizan durante la inyeccion (Cada vez que se inyecte se creara un nuevo objeto)
 //@Singleton 
 //@ApplicationScoped 
+
 @Dependent 
 @Named ("mail")
 public class MailService implements Notificacion {
