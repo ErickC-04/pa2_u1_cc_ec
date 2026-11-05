@@ -1,5 +1,7 @@
 package ec.edu.uce.pa.paquete.Interceptors;
 
+import ec.edu.uce.pa.paquete.Pedido;
+
 import jakarta.annotation.Priority;
 import jakarta.interceptor.AroundInvoke;
 import jakarta.interceptor.Interceptor;
@@ -11,20 +13,20 @@ import jakarta.interceptor.InvocationContext;
 public class SmsInterceptor {
 
     @AroundInvoke
-    public Object interceptar(InvocationContext contex3)
+    public Object interceptar(InvocationContext context)
             throws Exception {
 
-        System.out.println("Ejecutando interceptor 3 SMS");
+        System.out.println("3. Ejecutando SMS");
 
-        long init = System.currentTimeMillis();
+        Object resultado = context.proceed();
 
-        Object resul = contex3.proceed();
+        Pedido pedido =
+                (Pedido) context.getParameters()[0];
 
-        long fin = System.currentTimeMillis();
+        System.out.println(
+                "SMS: Pedido confirmado para "
+                + pedido.getCliente());
 
-        System.out.println("El interceptor 3 demoro: "
-                + (fin - init));
-
-        return resul;
+        return resultado;
     }
 }

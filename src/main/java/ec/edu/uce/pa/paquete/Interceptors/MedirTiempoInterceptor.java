@@ -11,23 +11,20 @@ import jakarta.interceptor.InvocationContext;
 public class MedirTiempoInterceptor {
 
     @AroundInvoke
-    public Object interceptar(InvocationContext contex)
+    public Object interceptar(InvocationContext context)
             throws Exception {
 
-        // SE EJECUTA PRIMERO
-        System.out.println("Ejecutando interceptor 1 MedirTiempo");
+        System.out.println("1. Ejecutando MedirTiempo");
 
-        long init = System.currentTimeMillis();
+        long inicio = System.currentTimeMillis();
 
-        // Continúa con los demás interceptores
-        Object resul = contex.proceed();
+        Object resultado = context.proceed();
 
         long fin = System.currentTimeMillis();
 
-        // SE EJECUTA AL FINAL
-        System.out.println("El interceptor 1 demoro: "
-                + (fin - init) + " ms");
+        System.out.println("Tiempo total: "
+                + (fin - inicio) + " ms");
 
-        return resul;
+        return resultado;
     }
 }
